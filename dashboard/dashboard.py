@@ -13,11 +13,14 @@ st.markdown("Dashboard ini menampilkan analisis performa e-commerce berdasarkan 
 # 3. Fungsi untuk load dan pra-pemrosesan data
 @st.cache_data
 def load_data():
-    df = pd.read_csv("main_data.csv")
-    # Konversi kolom waktu ke tipe datetime
-    if 'order_purchase_timestamp' in df.columns:
+   from pathlib import Path
+   BASE_DIR = Path(__file__).resolve().parent
+   DATA_PATH = BASE_DIR / "main_data.csv"
+   df = pd.read_csv(DATA_PATH)
+   
+   if 'order_purchase_timestamp' in df.columns:
         df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
-    return df
+        return df
 
 try:
     df = load_data()
