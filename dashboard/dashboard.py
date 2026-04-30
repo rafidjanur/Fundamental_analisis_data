@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
 
 # 1. Konfigurasi Halaman
 st.set_page_config(page_title="E-Commerce Dashboard", layout="wide")
@@ -13,7 +14,10 @@ st.markdown("Dashboard ini menampilkan analisis performa e-commerce berdasarkan 
 # 3. Fungsi untuk load dan pra-pemrosesan data
 @st.cache_data
 def load_data():
-    df = pd.read_csv("main_data.csv")
+    BASE_DIR = Path(__file__).resolve().parent
+    file_path = BASE_DIR / "main_data.csv"
+
+    df = pd.read_csv(file_path)
     # Konversi kolom waktu ke tipe datetime
     if 'order_purchase_timestamp' in df.columns:
         df['order_purchase_timestamp'] = pd.to_datetime(df['order_purchase_timestamp'])
