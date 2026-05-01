@@ -28,7 +28,7 @@ Dengan adanya dashboard ini, diharapkan proses analisis data menjadi lebih mudah
 └───requirements.txt
 └───url.txt
 ```
-## Setup Environment
+## 📦Setup Environment
 ## Pakai anaconda
 ```bash
 conda create --name ecom-ds python=3.9
@@ -36,13 +36,14 @@ conda activate ecom-ds
 pip install -r requirements.txt
 ```
 ## Menggunakan Terminal / Shell 
+```bash
 mkdir proyek_analisis_data
 cd proyek_analisis_data
 pipenv install
 pipenv shell
 pip install -r requirements.txt
-
-##  Panduan Menjalankan Aplikasi
+```
+## 🚀 Panduan Menjalankan Aplikasi
 ### Clone Repositori
 Langkah pertama, clone repositori:
 ```bash
